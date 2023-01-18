@@ -12,7 +12,7 @@ export class HomePage {
 
   constructor(private httpClient: HttpClient) {
 
-    this.animal = this.httpClient.get('https://randomuser.me/api?results=100').pipe(map(res => res['results']))
+    this.animal = this.httpClient.get('https://raw.githubusercontent.com/JJMUNPER/HLC-Proyect-14-Tem1/master/MOCK_DATA.json');
   }
 
 }
