@@ -7,6 +7,12 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  animal: any;
+
+
+  constructor(private httpClient: HttpClient) {
+
+    this.animal = this.httpClient.get('https://randomuser.me/api?results=100').pipe(map(res => res['results']))
+  }
 
 }
