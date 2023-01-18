@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ export class HomePage {
 
   constructor(private httpClient: HttpClient) {
 
-    this.animal = this.httpClient.get('https://raw.githubusercontent.com/JJMUNPER/HLC-Proyect-14-Tem1/master/MOCK_DATA.json');
+    this.animal = this.httpClient.get('https://raw.githubusercontent.com/JJMUNPER/HLC-Proyect-14-Tem1/master/MOCK.json');
   }
 
 }
