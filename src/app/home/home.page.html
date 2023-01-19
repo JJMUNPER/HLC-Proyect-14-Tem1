@@ -7,19 +7,25 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-grid>
-    <ion-row>
-      <ion-col *ngFor="let animalinchi of animal | async"size-xl="2" size-lg="2" size-md="4"size-sm="6"size-xs="12">
-        <ion-card>
-          <ion-card-content>
-            <ion-avatar>
-              <img [src]="animalinchi.img"/>
-            </ion-avatar>            
-            <h1>{{ animalinchi.name }} {{ animalinchi.nameC }}</h1>
-            Nunc dolor libero, congue tincidunt fermentum a, porttitor a tortor. In ultrices consectetur diam, a euismod est euismod eu. Nulla molestie convallis mollis. Aliquam eleifend urna id mauris scelerisque, ac varius diam rhoncus. Phasellus tincidunt est a diam facilisis, eget mollis arcu consectetur.
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <ion-input [(ngModel)]="filtro" placeholder="Introduce filtro">
+  </ion-input>
+    <ion-grid>
+      <ion-row>
+        <ng-container *ngFor="let animalinchi of animal | async">
+          <ion-col *ngIf="filtro===''||animalinchi.name.startsWith(filtro)" size-xl="2" size-lg="2" size-md="4"size-sm="6"size-xs="12">
+            <ion-card >
+              <ion-card-content>
+                <ion-avatar>
+                  <img [src]="animalinchi.img"/>
+                </ion-avatar>            
+                <ion-card-title>{{ animalinchi.name }}</ion-card-title>
+                <b>{{ animalinchi.nameC }}</b>
+                <p>{{ animalinchi.pais }}</p>
+                Nunc dolor libero, congue tincidunt fermentum a, porttitor a tortor. In ultrices consectetur diam, a euismod est euismod eu. Nulla molestie convallis mollis. Aliquam eleifend urna id mauris scelerisque, ac varius diam rhoncus. Phasellus tincidunt est a diam facilisis, eget mollis arcu consectetur.
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ng-container>
+      </ion-row>
+    </ion-grid>
 </ion-content>

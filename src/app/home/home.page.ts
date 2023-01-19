@@ -9,6 +9,8 @@ import { HttpClient } from '@angular/common/http';
 export class HomePage {
 
   animal: any;
+  // variable filtro
+  filtro: string='';
 
 
   constructor(private httpClient: HttpClient) {
